@@ -1,13 +1,12 @@
 import React from "react";
 
-const Results = () => {
-
+const SearchResults = ({ song, key }) => {
     return (
         <div>
-            <h1>Results</h1>
-            
+            <h3 key={key}>{song[0]}</h3>
+            <p>{song[2]} | {song[3]}</p>
         </div>
     )
 }
 
-export default Results;
+export default SearchResults;
