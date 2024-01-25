@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import musicData from "./data";
 
-export default function SearchBar({ addResults }) {
+export default function SearchBar({ addResults, setResults }) {
 
     const [search, setSearch] = useState('');
 
@@ -10,11 +10,16 @@ export default function SearchBar({ addResults }) {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        for (let i = 0; i < musicData.length; i++) {
-            if (musicData[i].song.includes(search)) {
-                addResults(musicData[i].song, musicData[i].id, musicData[i].artist, musicData[i].album);
+        if (search !== '') {
+            e.preventDefault();
+            setResults([]);
+            for (let i = 0; i < musicData.length; i++) {
+                if (musicData[i].song.includes(search) || musicData[i].artist.includes(search) || musicData[i].album.includes(search)) {
+                    addResults(musicData[i].song, musicData[i].id, musicData[i].artist, musicData[i].album);
+                }
             }
+        } else {
+            e.preventDefault();
         }
         setSearch('');
     }
