@@ -14,7 +14,7 @@ export default function SearchBar({ addResults, setResults }) {
             e.preventDefault();
             setResults([]);
             for (let i = 0; i < musicData.length; i++) {
-                if (musicData[i].song.includes(search) || musicData[i].artist.includes(search) || musicData[i].album.includes(search)) {
+                if (musicData[i].song.toLowerCase().includes(search.toLowerCase()) || musicData[i].artist.toLowerCase().includes(search.toLowerCase()) || musicData[i].album.toLowerCase().includes(search.toLowerCase())) {
                     addResults(musicData[i].song, musicData[i].id, musicData[i].artist, musicData[i].album);
                 }
             }
