@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import SearchResults from './SearchResults'
 import Tracklist from "./Tracklist";
+import LogIn from "./LogIn";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
   return (
     <>
       <h1>Jammming</h1>
+      <LogIn />
       <SearchBar addResults={addResults} setResults={setResults}/>
       <h2>Results</h2>
       {results.map(result => <SearchResults song={result} id={result[1]} addToTracklist={addToTracklist}/> )}
