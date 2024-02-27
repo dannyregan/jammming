@@ -2,15 +2,19 @@ import React from "react";
 
 const LogIn = () => {
     const connectToSpotify = () => {
-        var client_id = '2817e8fd2b2a4c9b839e3f6d600fe041';
-        var redirect_uri = 'localhost:3000';
+        // var client_id = '2817e8fd2b2a4c9b839e3f6d600fe041';
+        // var redirect_uri = 'localhost:3000';
 
-        var url = 'https://accounts.spotify.com/authorize';
-        url += '?response_type=token';
-        url += '&client_id=' + encodeURIComponent(client_id);
-        url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-        console.log(url);
-        fetch(url)
+        // var url = 'https://accounts.spotify.com/authorize';
+        // url += '?response_type=token';
+        // url += '&client_id=' + encodeURIComponent(client_id);
+        // url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+        // console.log(url);
+        fetch("https://accounts.spotify.com/authorize?response_type=token&client_id=2817e8fd2b2a4c9b839e3f6d600fe041&redirect_uri=localhost%3A3000", {
+            headers: {
+                'mode': 'no-cors'
+            }
+        })
         .then(
             response => {
                 console.log(response);
